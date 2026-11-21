@@ -117,3 +117,34 @@ function suspendUser(int $id): void {
     $stmt->execute([$suspended, $id]);
     ok(['id' => $id, 'suspended' => $suspended]);
 }
+
+function adminDashboard(): void {
+    requireRole('gestore');
+    resolveMarketStatus();
+    $pdo = db();
+    $activeTraders = $pdo->query(
+        "SELECT YEARWEEK(createdAt, 1) AS week, MIN(DATE(createdAt)) AS firstDay, COUNT(DISTINCT userId) AS traders
+         FROM trades WHERE createdAt >= DATE_SUB(NOW(), INTERVAL 8 WEEK) GROUP BY week ORDER BY week"
+    )->fetchAll();
+    $tradesPerMarket = $pdo->query(
+        "SELECT m.id, m.question, COUNT(t.id) AS trades FROM markets m LEFT JOIN trades t ON t.marketId = m.id
+         WHERE m.status IN ('open', 'closed', 'resolved', 'voided') GROUP BY m.id ORDER BY trades DESC, m.id LIMIT 10"
+    )->fetchAll();
+    $proposals = $pdo->query(
+        "SELECT COUNT(*) AS proposed,
+                SUM(status NOT IN ('proposed', 'rejected')) AS approved,
+                SUM(status = 'rejected') AS rejected
+         FROM markets WHERE proposerId IS NOT NULL"
+    )->fetch();
+    $avgHours = $pdo->query(
+        "SELECT AVG(TIMESTAMPDIFF(HOUR, closesAt, resolvedAt)) FROM markets WHERE status = 'resolved'"
+    )->fetchColumn();
+    $openReports = (int)$pdo->query("SELECT COUNT(*) FROM reports WHERE status = 'open'")->fetchColumn();
+    ok([
+        'activeTradersPerWeek' => array_map(fn($r) => ['firstDay' => $r['firstDay'], 'traders' => (int)$r['traders']], $activeTraders),
+        'tradesPerMarket' => array_map(fn($r) => ['id' => (int)$r['id'], 'question' => $r['question'], 'trades' => (int)$r['trades']], $tradesPerMarket),
+        'proposals' => ['proposed' => (int)$proposals['proposed'], 'approved' => (int)$proposals['approved'], 'rejected' => (int)$proposals['rejected']],
+        'avgHoursClosingToResolution' => $avgHours === null ? null : round((float)$avgHours, 1),
+        'openReports' => $openReports,
+    ]);
+}

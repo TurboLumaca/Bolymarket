@@ -36,7 +36,7 @@ async function submit() {
       <label for="password" class="mb-1 block font-semibold">Password (almeno 8 caratteri)</label>
       <input id="password" v-model="form.password" type="password" autocomplete="new-password" class="input" required />
     </div>
-    <div class="flex items-start gap-3">
+    <div class="flex min-h-[44px] items-start gap-3">
       <input id="consent" v-model="form.consent" type="checkbox" class="mt-1 h-6 w-6 shrink-0" />
       <label for="consent">Ho letto l'<RouterLink to="/privacy">informativa sulla privacy</RouterLink> e acconsento al trattamento dei dati.</label>
     </div>

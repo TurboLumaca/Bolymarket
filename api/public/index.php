@@ -25,6 +25,8 @@ $routes = [
     ['POST',   '/api/markets/{id}/preview',  'postPreview'],
     ['POST',   '/api/markets/{id}/trades',   'postTrade'],
     ['POST',   '/api/markets/{id}/reports',  'postReport'],
+    ['GET',    '/api/portfolio',             'getPortfolio'],
+    ['GET',    '/api/leaderboard',           'getLeaderboard'],
     ['POST',   '/api/proposals',             'postProposal'],
     ['GET',    '/api/proposals/mine',        'getMyProposals'],
 
@@ -34,6 +36,7 @@ $routes = [
     ['POST',   '/api/admin/markets/{id}/resolve',     'resolveMarket'],
     ['POST',   '/api/admin/markets/{id}/void',        'voidMarket'],
     ['POST',   '/api/admin/markets/{id}/hide',        'hideMarket'],
+    ['GET',    '/api/admin/dashboard',                'adminDashboard'],
     ['GET',    '/api/admin/reports',                  'adminReports'],
     ['POST',   '/api/admin/reports/{id}/close',       'closeReport'],
     ['GET',    '/api/admin/users',                    'adminUsers'],

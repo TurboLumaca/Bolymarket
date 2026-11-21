@@ -53,7 +53,24 @@ function listMarkets(string $status, string $category, string $search): array {
             ORDER BY FIELD(m.status, \'open\', \'closed\', \'resolved\', \'voided\'), m.closesAt';
     $stmt = db()->prepare($sql);
     $stmt->execute($params);
-    return array_map('marketPublic', $stmt->fetchAll());
+    $markets = $stmt->fetchAll();
+    $trends = recentPrices(array_column($markets, 'id'));
+    return array_map(fn($m) => marketPublic($m) + ['trend' => $trends[$m['id']] ?? []], $markets);
+}
+
+// Last 20 Yes prices per market, oldest first, for the small trend line on cards.
+function recentPrices(array $marketIds): array {
+    if (!$marketIds) {
+        return [];
+    }
+    $marks = implode(',', array_fill(0, count($marketIds), '?'));
+    $stmt = db()->prepare("SELECT marketId, priceYes FROM priceHistory WHERE marketId IN ($marks) ORDER BY createdAt, id");
+    $stmt->execute(array_map('intval', $marketIds));
+    $trends = [];
+    foreach ($stmt->fetchAll() as $row) {
+        $trends[$row['marketId']][] = (float)$row['priceYes'];
+    }
+    return array_map(fn($prices) => array_slice($prices, -20), $trends);
 }
 
 function marketHistory(int $marketId): array {

@@ -29,3 +29,19 @@ Prompt: "(c) market lifecycle, proposals, gestore approval and resolution" (dal 
 Cosa è stato generato: `resolveMarketStatus()` (chiusura lazy con una sola UPDATE), proposte con controllo `BLOCKED_PATTERNS` (`contentRules.php`), `settlementService.php` (risoluzione e annullamento con accrediti in transazione), controller admin (approva con modifica del testo e di b, rifiuta con motivo, risolvi con prova, annulla, nascondi, segnalazioni, sospensione utenti) e le viste Vue per proporre, segnalare e gestire.
 
 Da rivedere a mano: la lista `BLOCKED_PATTERNS` (può dare falsi positivi, es. «partito» come participio), il fatto che la risoluzione sia consentita solo a mercato chiuso mentre l'annullamento anche a mercato aperto, e che un utente sospeso non possa più fare nulla perché `requireLogin()` lo blocca.
+
+## Milestone (d): portafoglio, classifica, dashboard
+
+Prompt: "(d) portfolio, leaderboard, dashboard" (dal prompt iniziale).
+
+Cosa è stato generato: `leaderboardService.php` (crediti netti con valore delle quote aperte; punteggio di Brier calcolato con il prezzo medio pagato per il lato tenuto alla risoluzione), endpoint portafoglio con profitto/perdita per mercato, endpoint della dashboard del gestore (utenti attivi per settimana, operazioni per mercato, proposte approvate/inviate, ore medie da chiusura a risoluzione, segnalazioni aperte) e le tre viste Vue con barre CSS (nessuna libreria di grafici).
+
+Da rivedere a mano: la definizione di previsione per il Brier (è una convenzione semplice, da spiegare al docente), il conteggio «approvate» (ogni mercato con proponente non in stato proposto o rifiutato), il fatto che le quote risolte non contino più nel valore del portafoglio perché già pagate.
+
+## Milestone (e): identità visiva, accessibilità, documentazione
+
+Prompt: "(e) visual identity pass and accessibility pass, plus docs" e, nel thread, il design mobile scuro in stile fintech che prevale sull'identità originale dove differisce.
+
+Cosa è stato generato: tema scuro/chiaro con token Tailwind su variabili CSS, selettore del tema, sparkline nelle card, controllo con axe-core su 11 pagine in due temi e due larghezze (0 violazioni dopo la correzione della regione dell'avviso), `docs/accessibility.md` con l'elenco delle deviazioni, README completo, file `.htaccess` e virtual host per XAMPP.
+
+Da rivedere a mano: test con screen reader e solo tastiera (non automatizzabili), contenuto di `docs/design-report.md` (solo titoli: personas, mockup e focus group sono lavoro del gruppo), testo dell'informativa privacy, domini email ammessi e `BLOCKED_PATTERNS`.
