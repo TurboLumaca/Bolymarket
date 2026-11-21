@@ -19,6 +19,8 @@ async function onLogout() {
       <RouterLink to="/" class="flex items-center gap-2 font-bold text-ink no-underline">
         <Logo /> Oracolo del Campus
       </RouterLink>
+      <RouterLink to="/proponi" class="inline-flex min-h-[44px] items-center">Proponi</RouterLink>
+      <RouterLink v-if="user && user.role === 'gestore'" to="/gestore" class="inline-flex min-h-[44px] items-center">Gestore</RouterLink>
       <span class="flex-1"></span>
       <template v-if="user">
         <span class="text-sm">{{ user.nickname }} · <strong>{{ credits(user.credits) }}</strong> crediti</span>

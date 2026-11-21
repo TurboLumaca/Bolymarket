@@ -24,6 +24,20 @@ $routes = [
     ['GET',    '/api/markets/{id}',          'getMarket'],
     ['POST',   '/api/markets/{id}/preview',  'postPreview'],
     ['POST',   '/api/markets/{id}/trades',   'postTrade'],
+    ['POST',   '/api/markets/{id}/reports',  'postReport'],
+    ['POST',   '/api/proposals',             'postProposal'],
+    ['GET',    '/api/proposals/mine',        'getMyProposals'],
+
+    ['GET',    '/api/admin/markets',                  'adminMarkets'],
+    ['POST',   '/api/admin/markets/{id}/approve',     'approveMarket'],
+    ['POST',   '/api/admin/markets/{id}/reject',      'rejectMarket'],
+    ['POST',   '/api/admin/markets/{id}/resolve',     'resolveMarket'],
+    ['POST',   '/api/admin/markets/{id}/void',        'voidMarket'],
+    ['POST',   '/api/admin/markets/{id}/hide',        'hideMarket'],
+    ['GET',    '/api/admin/reports',                  'adminReports'],
+    ['POST',   '/api/admin/reports/{id}/close',       'closeReport'],
+    ['GET',    '/api/admin/users',                    'adminUsers'],
+    ['POST',   '/api/admin/users/{id}/suspend',       'suspendUser'],
 ];
 
 function dispatch(array $routes): void {

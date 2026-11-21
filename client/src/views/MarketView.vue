@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router';
 import ProbabilityBar from '../components/ProbabilityBar.vue';
 import PriceChart from '../components/PriceChart.vue';
 import TradePanel from '../components/TradePanel.vue';
+import ReportForm from '../components/ReportForm.vue';
 import { api } from '../api';
 import { day, statusLabel } from '../format';
 import { useIsDesktop } from '../composables/useIsDesktop';
@@ -49,6 +50,7 @@ watch(user, load);
           <p>{{ market.resolutionRule }}</p>
           <p class="mt-2 text-sm text-muted">Chiusura: {{ day(market.closesAt) }}</p>
         </section>
+        <ReportForm v-if="user && ['open', 'closed', 'resolved'].includes(market.status)" :market-id="market.id" />
         <p v-if="user && market.myPosition && (market.myPosition.sharesYes || market.myPosition.sharesNo)" class="text-sm">
           Le tue quote: {{ market.myPosition.sharesYes }} Sì, {{ market.myPosition.sharesNo }} No.
         </p>

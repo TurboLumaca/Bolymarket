@@ -10,9 +10,9 @@ const ALLOWED_EMAIL_DOMAINS = ['studio.unibo.it', 'unibo.it'];
 
 // Case-insensitive regex fragments matched against question and resolution rule.
 const BLOCKED_PATTERNS = [
-    'esame', 'voto', 'bocciat', 'promoss', 'prof\.', 'professor',
+    '\\besam[ei]\\b', '\\bvoti?\\b', 'bocciat', 'promoss', 'prof\\.', 'professor', 'docent',
     'malatt', 'covid', 'incinta', 'depress',
-    'elezion', 'partito', 'candidat', 'pd\b', 'lega\b',
+    'elezion', '\\bpartit[oi]\\b', 'candidat', '\\bpd\\b', '\\blega\\b',
     'soffiata', 'anticipazion', 'insider',
 ];
 
