@@ -46,3 +46,17 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+@layer components {
+  .chip { @apply inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full border border-line bg-surface px-4 text-sm font-semibold text-ink; }
+  .chip[aria-pressed='true'] { @apply border-oracleSoft bg-oracle text-white; }
+  .side-pill { @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-surface px-4 font-bold no-underline; }
+  .side-yes { @apply border-2 border-solid border-yes text-yes; }
+  .side-no { @apply border-2 border-dashed border-no text-no; }
+  .no-stripes { background: repeating-linear-gradient(135deg, rgb(var(--no)) 0 4px, rgb(var(--surface)) 4px 8px); }
+}
+
+@layer components {
+  .sheet { @apply m-0 mt-auto max-h-[90vh] w-full max-w-full overflow-y-auto rounded-t-card border border-line bg-paper p-0 text-ink; }
+  .sheet::backdrop { background: rgb(0 0 0 / 0.6); }
+}

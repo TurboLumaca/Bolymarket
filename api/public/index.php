@@ -18,6 +18,12 @@ $routes = [
     ['POST',   '/api/auth/register', 'register'],
     ['POST',   '/api/auth/login',    'login'],
     ['POST',   '/api/auth/logout',   'logout'],
+
+    ['GET',    '/api/categories',            'getCategories'],
+    ['GET',    '/api/markets',               'getMarkets'],
+    ['GET',    '/api/markets/{id}',          'getMarket'],
+    ['POST',   '/api/markets/{id}/preview',  'postPreview'],
+    ['POST',   '/api/markets/{id}/trades',   'postTrade'],
 ];
 
 function dispatch(array $routes): void {

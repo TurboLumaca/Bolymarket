@@ -4,6 +4,7 @@ import { useAnnouncer } from '../composables/useAnnouncer';
 
 const routes = [
   { path: '/', name: 'home', component: () => import('../views/HomeView.vue'), meta: { title: 'Mercati' } },
+  { path: '/mercati/:id', name: 'market', component: () => import('../views/MarketView.vue'), meta: { title: 'Mercato' } },
   { path: '/accedi', name: 'login', component: () => import('../views/LoginView.vue'), meta: { title: 'Accedi' } },
   { path: '/registrati', name: 'register', component: () => import('../views/RegisterView.vue'), meta: { title: 'Registrati' } },
   { path: '/privacy', name: 'privacy', component: () => import('../views/PrivacyView.vue'), meta: { title: 'Privacy' } },

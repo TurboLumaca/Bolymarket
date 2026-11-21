@@ -2,6 +2,7 @@
 import { useRouter } from 'vue-router';
 import Logo from './Logo.vue';
 import { useAuth } from '../composables/useAuth';
+import { credits } from '../format';
 
 const { user, logout } = useAuth();
 const router = useRouter();
@@ -20,7 +21,7 @@ async function onLogout() {
       </RouterLink>
       <span class="flex-1"></span>
       <template v-if="user">
-        <span class="text-sm">{{ user.nickname }} · <strong>{{ Number(user.credits).toFixed(2) }}</strong> crediti</span>
+        <span class="text-sm">{{ user.nickname }} · <strong>{{ credits(user.credits) }}</strong> crediti</span>
         <button type="button" class="btn bg-surface !text-ink border border-line" @click="onLogout">Esci</button>
       </template>
       <template v-else>

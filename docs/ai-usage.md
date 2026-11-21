@@ -13,3 +13,11 @@ Prompt: "Implement in milestones... (a) schema, seed, auth" (dal prompt iniziale
 Cosa è stato generato: schema MySQL, script di seed (31 utenti: 1 gestore e 30 studenti; categorie), config, router a tabella, registrazione/login/logout/eliminazione account con CSRF, top-up settimanale lazy, scheletro Vue con login, registrazione, privacy, banner e annuncio del titolo a ogni cambio pagina.
 
 Da rivedere a mano: la logica del top-up in `api/src/auth.php` (calcolo delle settimane in SQL), la lista `BLOCKED_PATTERNS` e `ALLOWED_EMAIL_DOMAINS` in `config.php`, i testi dell'informativa privacy (da far validare), i contrasti dei colori dei token.
+
+## Milestone (b): LMSR, test, trading
+
+Prompt: "(b) lmsr.php with tests, then trading" (dal prompt iniziale). Dopo l'OK al piano è stato chiesto di proseguire fino alla fine senza fermarsi tra le milestone.
+
+Cosa è stato generato: `lmsr.php` (4 funzioni pure con log-sum-exp per evitare overflow), `tests/run.php` (prezzo 0,5, somma 1, andata e ritorno, perdita massima ≤ b·ln2), `marketService.php` (operazioni in transazione con `FOR UPDATE` su mercato, utente e posizione), endpoint di elenco, dettaglio, anteprima e operazione, seed completo (12 mercati in ogni stato, 210 operazioni simulate con la stessa matematica) e le viste Vue: elenco con filtri, dettaglio con grafico SVG, pannello di trading (bottom sheet su mobile).
+
+Da rivedere a mano: le operazioni sono in quote intere (1-200, `MIN_TRADE`/`MAX_TRADE` contano le quote); `costBasis` è «crediti pagati meno crediti incassati»; l'arrotondamento a centesimi avviene solo in `tradeCredits()`; la scelta di 5 mercati risolti nel seed serve a far comparire la classifica di calibrazione (soglia 5).
