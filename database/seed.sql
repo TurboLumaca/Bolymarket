@@ -1,0 +1,36 @@
+USE oracolo;
+
+INSERT INTO categories (name) VALUES ('Servizi'),('Eventi'),('Sport'),('Mensa'),('Aule e spazi'),('Trasporti');
+
+INSERT INTO users (nickname, email, passwordHash, role, credits, lastTopupAt, consentAt) VALUES
+('gestore','gestore@unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','gestore',1000,NOW(),NOW()),
+('lince','lince@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('aurora','aurora@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('tramonto','tramonto@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('cesenate','cesenate@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('volpe','volpe@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('nebbia','nebbia@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('faro','faro@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('delta','delta@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('ginepro','ginepro@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('biblio','biblio@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('caffe','caffe@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('pioggia','pioggia@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('sole','sole@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('pino','pino@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('torre','torre@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('ciliegia','ciliegia@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('riva','riva@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('onda','onda@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('luna','luna@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('bussola','bussola@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('castoro','castoro@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('edera','edera@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('falco','falco@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('grillo','grillo@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('iris','iris@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('lampo','lampo@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('maggese','maggese@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('noce','noce@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('ontano','ontano@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW()),
+('pavone','pavone@studio.unibo.it','$2y$10$RM.xSG6JdIQeinSYhyNCSeMXEEPnL2rAVZoVWaXZNY5Zv0zWuj./y','studente',1000,NOW(),NOW());

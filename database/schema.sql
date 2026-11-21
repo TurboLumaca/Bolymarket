@@ -1,0 +1,87 @@
+DROP DATABASE IF EXISTS oracolo;
+CREATE DATABASE oracolo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE oracolo;
+
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nickname VARCHAR(30) NOT NULL UNIQUE,
+  email VARCHAR(120) NOT NULL UNIQUE,
+  passwordHash VARCHAR(255) NOT NULL,
+  role ENUM('studente','gestore') NOT NULL DEFAULT 'studente',
+  credits DECIMAL(12,2) NOT NULL,
+  lastTopupAt DATETIME NOT NULL,
+  suspended TINYINT(1) NOT NULL DEFAULT 0,
+  consentAt DATETIME NOT NULL,
+  createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE categories (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(40) NOT NULL UNIQUE
+) ENGINE=InnoDB;
+
+CREATE TABLE markets (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  proposerId INT NULL,
+  question VARCHAR(200) NOT NULL,
+  category VARCHAR(40) NOT NULL,
+  resolutionRule VARCHAR(500) NOT NULL,
+  closesAt DATETIME NOT NULL,
+  status ENUM('proposed','open','closed','resolved','voided','rejected','hidden') NOT NULL DEFAULT 'proposed',
+  liquidityB DECIMAL(12,2) NOT NULL,
+  qYes DECIMAL(14,4) NOT NULL DEFAULT 0,
+  qNo DECIMAL(14,4) NOT NULL DEFAULT 0,
+  outcome ENUM('yes','no') NULL,
+  resolutionEvidence VARCHAR(300) NULL,
+  rejectionReason VARCHAR(300) NULL,
+  createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  resolvedAt DATETIME NULL,
+  FOREIGN KEY (proposerId) REFERENCES users(id) ON DELETE SET NULL,
+  INDEX (status, closesAt)
+) ENGINE=InnoDB;
+
+CREATE TABLE trades (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  userId INT NOT NULL,
+  marketId INT NOT NULL,
+  side ENUM('yes','no') NOT NULL,
+  action ENUM('buy','sell') NOT NULL,
+  shares DECIMAL(14,4) NOT NULL,
+  credits DECIMAL(12,2) NOT NULL,
+  priceYesAfter DECIMAL(8,6) NOT NULL,
+  createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (marketId) REFERENCES markets(id) ON DELETE CASCADE,
+  INDEX (marketId, createdAt)
+) ENGINE=InnoDB;
+
+CREATE TABLE positions (
+  userId INT NOT NULL,
+  marketId INT NOT NULL,
+  sharesYes DECIMAL(14,4) NOT NULL DEFAULT 0,
+  sharesNo DECIMAL(14,4) NOT NULL DEFAULT 0,
+  costBasis DECIMAL(12,2) NOT NULL DEFAULT 0,
+  PRIMARY KEY (userId, marketId),
+  FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (marketId) REFERENCES markets(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE priceHistory (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  marketId INT NOT NULL,
+  priceYes DECIMAL(8,6) NOT NULL,
+  createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (marketId) REFERENCES markets(id) ON DELETE CASCADE,
+  INDEX (marketId, createdAt)
+) ENGINE=InnoDB;
+
+CREATE TABLE reports (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  marketId INT NOT NULL,
+  reporterId INT NOT NULL,
+  reason VARCHAR(300) NOT NULL,
+  status ENUM('open','closed') NOT NULL DEFAULT 'open',
+  createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (marketId) REFERENCES markets(id) ON DELETE CASCADE,
+  FOREIGN KEY (reporterId) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;

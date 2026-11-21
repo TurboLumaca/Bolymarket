@@ -1,0 +1,48 @@
+@import '@fontsource-variable/inter';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark is the default theme; light follows the system or data-theme="light". Values are "r g b". */
+:root {
+  --paper: 13 17 23;
+  --surface: 22 27 34;
+  --ink: 230 237 243;
+  --muted: 154 167 181;
+  --line: 62 72 86;
+  --oracle: 82 86 230;
+  --oracle-soft: 165 168 255;
+  --yes: 52 211 153;
+  --no: 251 113 133;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    --paper: 246 248 250; --surface: 255 255 255; --ink: 22 27 34; --muted: 87 96 106;
+    --line: 208 215 222; --oracle: 82 86 230; --oracle-soft: 67 56 202;
+    --yes: 15 118 110; --no: 190 18 60; color-scheme: light;
+  }
+}
+:root[data-theme='light'] {
+  --paper: 246 248 250; --surface: 255 255 255; --ink: 22 27 34; --muted: 87 96 106;
+  --line: 208 215 222; --oracle: 82 86 230; --oracle-soft: 67 56 202;
+  --yes: 15 118 110; --no: 190 18 60; color-scheme: light;
+}
+
+@layer base {
+  body { @apply bg-paper font-sans text-ink antialiased; font-variant-numeric: tabular-nums; }
+  a { @apply text-oracleSoft underline underline-offset-2; }
+  :focus-visible { @apply outline outline-2 outline-offset-2 outline-oracleSoft; }
+  h1:focus { outline: none; }
+}
+
+@layer components {
+  .btn { @apply inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-oracle px-5 font-semibold text-white no-underline; }
+  .btn:disabled { @apply opacity-60; }
+  .input { @apply min-h-[44px] w-full rounded-lg border border-line bg-surface px-3 text-ink; }
+  .card { @apply rounded-card border border-line bg-surface p-4; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
