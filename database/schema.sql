@@ -1,7 +1,7 @@
 SET NAMES utf8mb4;
-DROP DATABASE IF EXISTS oracolo;
-CREATE DATABASE oracolo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE oracolo;
+DROP DATABASE IF EXISTS bolymarket;
+CREATE DATABASE bolymarket CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE bolymarket;
 
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,

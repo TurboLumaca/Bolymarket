@@ -5,7 +5,7 @@ require __DIR__ . '/../api/src/config.php';
 require __DIR__ . '/../api/src/services/lmsr.php';
 
 mt_srand(42);
-$hash = password_hash('oracolo123', PASSWORD_DEFAULT);
+$hash = password_hash('bolymarket123', PASSWORD_DEFAULT);
 $q = fn(string $s) => "'" . str_replace("'", "''", $s) . "'";
 $ago = fn(int $minutes) => "DATE_SUB(NOW(), INTERVAL $minutes MINUTE)";
 $ahead = fn(int $minutes) => "DATE_ADD(NOW(), INTERVAL $minutes MINUTE)";
@@ -41,7 +41,7 @@ for ($u = 2; $u <= $userCount; $u++) {
 }
 $activeUsers = range(2, 16); // these trade in every resolved market, so they reach the Brier ranking
 
-$sql = ['SET NAMES utf8mb4;', 'USE oracolo;', ''];
+$sql = ['SET NAMES utf8mb4;', 'USE bolymarket;', ''];
 $sql[] = 'INSERT INTO categories (name) VALUES ' . implode(',', array_map(fn($c) => '(' . $q($c) . ')', $categories)) . ';';
 
 $marketRows = [];

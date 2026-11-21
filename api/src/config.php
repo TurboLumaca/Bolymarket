@@ -17,6 +17,6 @@ const BLOCKED_PATTERNS = [
 ];
 
 const DB_HOST = '127.0.0.1';
-const DB_NAME = 'oracolo';
-const DB_USER = 'oracolo';
-const DB_PASS = 'oracolo';
+const DB_NAME = 'bolymarket';
+const DB_USER = 'bolymarket';
+const DB_PASS = 'bolymarket';
