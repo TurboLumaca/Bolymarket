@@ -6,28 +6,27 @@
 /* Dark is the default theme; light follows the system or data-theme="light". Values are "r g b".
    yes = blue, no = amber (colour-blind safe); Sì/No are also told apart by text, icon and border style. */
 :root {
-  --paper: 9 12 16;
-  --surface: 15 20 27;
-  --ink: 232 238 245;
-  --muted: 150 162 178;
-  --line: 38 46 58;
-  --edge: 104 116 132;
-  --brand: 82 86 230;
-  --brand-soft: 165 168 255;
+  --paper: 12 12 13;
+  --surface: 22 22 24;
+  --muted: 160 161 165;
+  --line: 44 44 48;
+  --edge: 109 110 113;
+  --brand: 187 46 41;
+  --brand-soft: 240 130 125;
   --yes: 56 189 248;
   --no: 251 191 36;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme='dark']) {
-    --paper: 244 246 249; --surface: 255 255 255; --ink: 18 24 32; --muted: 84 94 106;
-    --line: 218 223 230; --edge: 110 120 132; --brand: 82 86 230; --brand-soft: 67 56 202;
+    --paper: 244 246 249; --surface: 255 255 255; --ink: 18 24 32; --muted: 98 99 103;
+    --line: 218 223 230; --edge: 109 110 113; --brand: 187 46 41; --brand-soft: 160 35 32;
     --yes: 3 105 161; --no: 180 83 9; color-scheme: light;
   }
 }
 :root[data-theme='light'] {
-  --paper: 244 246 249; --surface: 255 255 255; --ink: 18 24 32; --muted: 84 94 106;
-  --line: 218 223 230; --edge: 110 120 132; --brand: 82 86 230; --brand-soft: 67 56 202;
+  --paper: 244 246 249; --surface: 255 255 255; --ink: 18 24 32; --muted: 98 99 103;
+  --line: 218 223 230; --edge: 109 110 113; --brand: 187 46 41; --brand-soft: 160 35 32;
   --yes: 3 105 161; --no: 180 83 9; color-scheme: light;
 }
 
