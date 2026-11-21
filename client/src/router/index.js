@@ -20,7 +20,7 @@ const router = createRouter({ history: createWebHistory(), routes });
 
 // On every route change: set the title, announce it, move focus to the h1.
 router.afterEach(async (to) => {
-  const title = `${to.meta.title} · Oracolo del Campus`;
+  const title = `${to.meta.title} · Bolymarket`;
   document.title = title;
   await nextTick();
   const heading = document.querySelector('h1');

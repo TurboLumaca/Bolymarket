@@ -1,4 +1,4 @@
-# Oracolo del Campus
+# Bolymarket
 
 Mercati di previsione con **crediti finti, senza alcun valore reale**, per gli studenti del campus di Cesena. Progetto per Tecnologie Web.
 Server in PHP puro (PDO, nessun framework), client Vue 3 + Vite + Vue Router + Tailwind.
@@ -6,12 +6,12 @@ Server in PHP puro (PDO, nessun framework), client Vue 3 + Vite + Vue Router + T
 ## Setup su XAMPP
 
 1. Avvia Apache e MySQL da XAMPP (PHP 8.2 o superiore, `pdo_mysql` attivo).
-2. Copia il progetto in `htdocs/oracolo/`.
+2. Copia il progetto in `htdocs/bolymarket/`.
 3. Crea il database: `mysql -u root < database/schema.sql` e poi `mysql -u root < database/seed.sql`.
-4. Crea l'utente usato in `api/src/config.php` (default `oracolo` / `oracolo`):
-   `CREATE USER 'oracolo'@'localhost' IDENTIFIED BY 'oracolo'; GRANT ALL ON oracolo.* TO 'oracolo'@'localhost';`
+4. Crea l'utente usato in `api/src/config.php` (default `bolymarket` / `bolymarket`):
+   `CREATE USER 'bolymarket'@'localhost' IDENTIFIED BY 'bolymarket'; GRANT ALL ON bolymarket.* TO 'bolymarket'@'localhost';`
 5. Compila il client: `cd client && npm install && npm run build`.
-6. Configura il virtual host come in `docs/xampp-vhost.conf` e apri `http://oracolo.localhost`.
+6. Configura il virtual host come in `docs/xampp-vhost.conf` e apri `http://bolymarket.localhost`.
 
 ### Sviluppo senza Apache
 
@@ -24,7 +24,7 @@ Per rigenerare i dati demo: `php database/makeSeed.php > database/seed.sql` (poi
 
 ## Credenziali demo
 
-Password per tutti: `oracolo123`
+Password per tutti: `bolymarket123`
 
 | Ruolo | Email |
 |---|---|

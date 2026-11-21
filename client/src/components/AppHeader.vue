@@ -17,7 +17,7 @@ async function onLogout() {
   <header class="border-b border-line">
     <nav aria-label="Principale" class="mx-auto flex max-w-5xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3">
       <RouterLink to="/" class="flex items-center gap-2 font-bold text-ink no-underline">
-        <Logo /> Oracolo del Campus
+        <Logo /> Bolymarket
       </RouterLink>
       <RouterLink to="/classifica" class="inline-flex min-h-[44px] items-center">Classifica</RouterLink>
       <RouterLink v-if="user" to="/portafoglio" class="inline-flex min-h-[44px] items-center">Portafoglio</RouterLink>

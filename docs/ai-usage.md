@@ -4,7 +4,7 @@ Strumento usato: Claude (Anthropic), tramite Claude Code. Per ogni milestone son
 
 ## Prompt iniziale (comune a tutte le milestone)
 
-Il prompt completo descrive il prodotto "Oracolo del Campus", i vincoli del corso (PHP puro, Vue 3, Tailwind, WCAG 2.1 AA), ruoli, LMSR, ciclo di vita dei mercati, sicurezza, identità visiva, struttura delle cartelle e workflow a milestone. Dopo la presentazione del piano è stato aggiunto il design di riferimento: interfaccia mobile scura in stile fintech (card compatte, pillole Sì/No, bottom sheet, barra bicolore), che sostituisce l'identità visiva originale dove differisce.
+Il prompt completo descrive il prodotto "Bolymarket", i vincoli del corso (PHP puro, Vue 3, Tailwind, WCAG 2.1 AA), ruoli, LMSR, ciclo di vita dei mercati, sicurezza, identità visiva, struttura delle cartelle e workflow a milestone. Dopo la presentazione del piano è stato aggiunto il design di riferimento: interfaccia mobile scura in stile fintech (card compatte, pillole Sì/No, bottom sheet, barra bicolore), che sostituisce l'identità visiva originale dove differisce.
 
 ## Milestone (a): schema, seed, auth
 
