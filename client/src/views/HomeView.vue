@@ -61,7 +61,7 @@ watch(() => route.query, load, { immediate: true });
 
       <section aria-labelledby="listTitle" class="space-y-3">
         <div class="flex flex-wrap items-center justify-between gap-2">
-          <h2 id="listTitle" class="text-lg font-bold">
+          <h2 id="listTitle" class="text-2xl font-bold">
             {{ category || 'Tutti i mercati' }}<span v-if="search" class="font-normal text-muted"> · «{{ search }}»</span>
           </h2>
           <div role="group" aria-label="Stato del mercato" class="flex flex-wrap gap-2">

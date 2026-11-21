@@ -43,11 +43,13 @@
   .btn:disabled { @apply opacity-60; }
   .input { @apply min-h-[44px] w-full rounded-lg border border-edge bg-surface px-3 text-ink; }
   .card { @apply rounded-card border border-line bg-surface p-4; }
-  .tab { @apply inline-flex min-h-[44px] items-center whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-semibold text-muted no-underline hover:text-ink; }
+  .tab { @apply inline-flex min-h-[44px] items-center whitespace-nowrap border-b-2 border-transparent px-3 text-base font-bold text-muted no-underline hover:text-ink; }
   .tab[aria-current] { @apply border-brandSoft text-ink; }
   .tab-dot { @apply inline-flex h-[44px] w-[44px] items-center justify-center; }
+  .tab-dot { @apply w-[28px]; }
   .tab-dot::after { content: ''; @apply h-2.5 w-2.5 rounded-full border border-edge bg-transparent; }
-  .tab-dot[aria-current='true']::after { @apply border-brandSoft bg-brandSoft; }
+  .tab-dot[aria-current='true'] { @apply w-[52px]; }
+  .tab-dot[aria-current='true']::after { @apply w-8 border-brandSoft bg-brandSoft; }
 }
 
 @media (prefers-reduced-motion: reduce) {

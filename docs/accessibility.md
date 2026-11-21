@@ -47,9 +47,9 @@ Le specifiche originali restano l'autorità: nessun nome, logo, testo o immagine
 | Sfondo | nero-ardesia | `paper` 9 12 16 in tema scuro; il tema chiaro resta disponibile |
 | Intestazione | barra fissa con logo, ricerca e schede | fissa (sticky) solo da 768 px in su: su telefono occuperebbe circa un quarto dello schermo |
 | Ricerca | campo nella barra | il testo va nell'indirizzo (`?q=`); il cambio di sola query non sposta il focus sull'`h1` (`router/index.js`), altrimenti non si potrebbe scrivere |
-| Schede categoria | scheda attiva sottolineata | link con `aria-current="true"` e sottolineatura; barra con scorrimento orizzontale |
-| Carosello | scorrimento automatico possibile | nessun avanzamento automatico (WCAG 2.2.2, riduzione del movimento); precedente/successivo e puntini sono pulsanti da 44 px |
-| Liste laterali | titoli del sito di riferimento | titoli nostri: «Più mossi di recente» e «Più scambiati», ricavati dai mercati aperti già caricati (variazione dalla serie dei prezzi, numero di operazioni); la direzione è scritta con freccia e segno («▲ +4 punti»), mai solo con il colore; sotto lg la colonna va in fondo alla pagina |
+| Schede | una riga di schede con freccia di scorrimento | una sola riga (categorie, divisore, pagine); link con `aria-current` e sottolineatura; la freccia è un pulsante da 44 px con etichetta, la riga resta scorrevole anche da tastiera |
+| Carosello | pillole con il nome del mercato vicino, puntino attivo allungato | uguale, ma il nome completo è nell'`aria-label` dei pulsanti; nessun avanzamento automatico;  nessun avanzamento automatico (WCAG 2.2.2, riduzione del movimento); precedente/successivo e puntini sono pulsanti da 44 px |
+| Liste laterali | liste numerate con percentuale e variazione, pulsante «Esplora tutto» | uguale; titoli nostri: «Più mossi di recente» e «Più scambiati», ricavati dai mercati aperti già caricati (variazione dalla serie dei prezzi, numero di operazioni); la direzione è scritta con freccia e segno («▲ +4 punti»), mai solo con il colore; sotto lg la colonna va in fondo alla pagina |
 | Grafico in evidenza | libreria di grafici | SVG scritto a mano (`TrendChart.vue`), con `aria-label` che riassume l'andamento; il grafico completo con tabella dati resta nella pagina del mercato |
 | Percentuali | numeri grandi | `font-extrabold`, cifre tabulari |
 | Token | solo token Tailwind | rispettato; nessun colore scritto a mano nei componenti |

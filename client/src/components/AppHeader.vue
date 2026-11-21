@@ -10,6 +10,7 @@ const { user, logout } = useAuth();
 const route = useRoute();
 const router = useRouter();
 const categories = ref([]);
+const row = ref(null);
 const term = ref(String(route.query.q || ''));
 let timer = null;
 
@@ -63,21 +64,28 @@ async function onLogout() {
       </div>
     </div>
 
-    <nav aria-label="Principale" class="mx-auto flex max-w-6xl gap-1 overflow-x-auto px-4">
-      <RouterLink to="/classifica" class="tab">Classifica</RouterLink>
-      <RouterLink v-if="user" to="/portafoglio" class="tab">Portafoglio</RouterLink>
-      <RouterLink to="/proponi" class="tab">Proponi</RouterLink>
-      <RouterLink v-if="user && user.role === 'gestore'" to="/gestore" class="tab">Gestore</RouterLink>
-    </nav>
-
-    <nav aria-label="Categorie" class="mx-auto max-w-6xl overflow-x-auto px-4">
-      <ul class="flex gap-1">
-        <li v-for="name in ['', ...categories]" :key="name">
-          <RouterLink v-slot="{ href, navigate }" custom :to="tabTo(name)">
-            <a :href="href" class="tab" :aria-current="isActive(name) ? 'true' : undefined" @click="navigate">{{ name || 'Tutti' }}</a>
-          </RouterLink>
-        </li>
-      </ul>
-    </nav>
+    <div class="mx-auto flex max-w-6xl items-center px-4">
+      <div ref="row" class="flex min-w-0 flex-1 items-center overflow-x-auto">
+        <nav aria-label="Categorie" class="shrink-0">
+          <ul class="flex">
+            <li v-for="name in ['', ...categories]" :key="name">
+              <RouterLink v-slot="{ href, navigate }" custom :to="tabTo(name)">
+                <a :href="href" class="tab" :aria-current="isActive(name) ? 'true' : undefined" @click="navigate">{{ name || 'Tendenze' }}</a>
+              </RouterLink>
+            </li>
+          </ul>
+        </nav>
+        <span class="mx-2 h-5 w-px shrink-0 bg-edge" aria-hidden="true"></span>
+        <nav aria-label="Principale" class="flex shrink-0">
+          <RouterLink to="/classifica" class="tab">Classifica</RouterLink>
+          <RouterLink v-if="user" to="/portafoglio" class="tab">Portafoglio</RouterLink>
+          <RouterLink to="/proponi" class="tab">Proponi</RouterLink>
+          <RouterLink v-if="user && user.role === 'gestore'" to="/gestore" class="tab">Gestore</RouterLink>
+        </nav>
+      </div>
+      <button type="button" class="inline-flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full text-ink" aria-label="Scorri le schede a destra" @click="row.scrollBy({ left: 200, behavior: 'smooth' })">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5" /></svg>
+      </button>
+    </div>
   </header>
 </template>
