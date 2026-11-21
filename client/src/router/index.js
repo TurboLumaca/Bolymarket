@@ -19,7 +19,9 @@ const routes = [
 const router = createRouter({ history: createWebHistory(), routes });
 
 // On every route change: set the title, announce it, move focus to the h1.
-router.afterEach(async (to) => {
+router.afterEach(async (to, from) => {
+  // Only the query changed (search, filters): keep the focus where it is.
+  if (to.path === from.path) return;
   const title = `${to.meta.title} · Bolymarket`;
   document.title = title;
   await nextTick();

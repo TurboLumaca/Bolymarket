@@ -8,7 +8,7 @@ defineProps({ market: Object });
 </script>
 
 <template>
-  <article class="card flex flex-col gap-3">
+  <article class="card flex flex-col gap-3 transition-colors hover:border-edge">
     <p class="text-sm text-muted">{{ market.category }} · {{ statusLabel[market.status] }}</p>
     <h2 class="text-lg font-semibold leading-snug">
       <RouterLink :to="`/mercati/${market.id}`" class="text-ink no-underline hover:underline">{{ market.question }}</RouterLink>

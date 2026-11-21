@@ -3,44 +3,51 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Dark is the default theme; light follows the system or data-theme="light". Values are "r g b". */
+/* Dark is the default theme; light follows the system or data-theme="light". Values are "r g b".
+   yes = blue, no = amber (colour-blind safe); Sì/No are also told apart by text, icon and border style. */
 :root {
-  --paper: 13 17 23;
-  --surface: 22 27 34;
-  --ink: 230 237 243;
-  --muted: 154 167 181;
-  --line: 62 72 86;
-  --oracle: 82 86 230;
-  --oracle-soft: 165 168 255;
-  --yes: 52 211 153;
-  --no: 251 113 133;
+  --paper: 9 12 16;
+  --surface: 15 20 27;
+  --ink: 232 238 245;
+  --muted: 150 162 178;
+  --line: 38 46 58;
+  --edge: 104 116 132;
+  --brand: 82 86 230;
+  --brand-soft: 165 168 255;
+  --yes: 56 189 248;
+  --no: 251 191 36;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme='dark']) {
-    --paper: 246 248 250; --surface: 255 255 255; --ink: 22 27 34; --muted: 87 96 106;
-    --line: 208 215 222; --oracle: 82 86 230; --oracle-soft: 67 56 202;
-    --yes: 15 118 110; --no: 190 18 60; color-scheme: light;
+    --paper: 244 246 249; --surface: 255 255 255; --ink: 18 24 32; --muted: 84 94 106;
+    --line: 218 223 230; --edge: 110 120 132; --brand: 82 86 230; --brand-soft: 67 56 202;
+    --yes: 3 105 161; --no: 180 83 9; color-scheme: light;
   }
 }
 :root[data-theme='light'] {
-  --paper: 246 248 250; --surface: 255 255 255; --ink: 22 27 34; --muted: 87 96 106;
-  --line: 208 215 222; --oracle: 82 86 230; --oracle-soft: 67 56 202;
-  --yes: 15 118 110; --no: 190 18 60; color-scheme: light;
+  --paper: 244 246 249; --surface: 255 255 255; --ink: 18 24 32; --muted: 84 94 106;
+  --line: 218 223 230; --edge: 110 120 132; --brand: 82 86 230; --brand-soft: 67 56 202;
+  --yes: 3 105 161; --no: 180 83 9; color-scheme: light;
 }
 
 @layer base {
   body { @apply bg-paper font-sans text-ink antialiased; font-variant-numeric: tabular-nums; }
-  a { @apply text-oracleSoft underline underline-offset-2; }
-  :focus-visible { @apply outline outline-2 outline-offset-2 outline-oracleSoft; }
+  a { @apply text-brandSoft underline underline-offset-2; }
+  :focus-visible { @apply outline outline-2 outline-offset-2 outline-brandSoft; }
   h1:focus { outline: none; }
 }
 
 @layer components {
-  .btn { @apply inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-oracle px-5 font-semibold text-white no-underline; }
+  .btn { @apply inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-brand px-5 font-semibold text-white no-underline; }
   .btn:disabled { @apply opacity-60; }
-  .input { @apply min-h-[44px] w-full rounded-lg border border-line bg-surface px-3 text-ink; }
+  .input { @apply min-h-[44px] w-full rounded-lg border border-edge bg-surface px-3 text-ink; }
   .card { @apply rounded-card border border-line bg-surface p-4; }
+  .tab { @apply inline-flex min-h-[44px] items-center whitespace-nowrap border-b-2 border-transparent px-3 text-sm font-semibold text-muted no-underline hover:text-ink; }
+  .tab[aria-current] { @apply border-brandSoft text-ink; }
+  .tab-dot { @apply inline-flex h-[44px] w-[44px] items-center justify-center; }
+  .tab-dot::after { content: ''; @apply h-2.5 w-2.5 rounded-full border border-edge bg-transparent; }
+  .tab-dot[aria-current='true']::after { @apply border-brandSoft bg-brandSoft; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -48,8 +55,8 @@
 }
 
 @layer components {
-  .chip { @apply inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full border border-line bg-surface px-4 text-sm font-semibold text-ink; }
-  .chip[aria-pressed='true'] { @apply border-oracleSoft bg-oracle text-white; }
+  .chip { @apply inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full border border-edge bg-surface px-4 text-sm font-semibold text-ink; }
+  .chip[aria-pressed='true'] { @apply border-brandSoft bg-brand text-white; }
   .side-pill { @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-surface px-4 font-bold no-underline; }
   .side-yes { @apply border-2 border-solid border-yes text-yes; }
   .side-no { @apply border-2 border-dashed border-no text-no; }

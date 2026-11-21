@@ -68,7 +68,7 @@ watch(user, load);
       <dialog ref="sheet" class="sheet" aria-label="Operazioni">
         <div class="mx-auto max-w-md space-y-3 p-4">
           <TradePanel :market="market" @traded="onTraded" />
-          <button type="button" class="btn w-full border border-line !bg-surface !text-ink" @click="sheet.close()">Chiudi</button>
+          <button type="button" class="btn w-full border border-edge !bg-surface !text-ink" @click="sheet.close()">Chiudi</button>
         </div>
       </dialog>
     </template>

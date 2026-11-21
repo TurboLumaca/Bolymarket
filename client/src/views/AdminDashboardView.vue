@@ -36,7 +36,7 @@ onMounted(async () => {
       <ul class="space-y-2">
         <li v-for="w in data.activeTradersPerWeek" :key="w.firstDay" class="grid grid-cols-[8rem_1fr_2rem] items-center gap-2">
           <span class="text-sm">Dal {{ day(w.firstDay + ' 00:00:00') }}</span>
-          <span class="h-3 rounded bg-oracle" :style="{ width: (w.traders / maxTraders) * 100 + '%' }" aria-hidden="true"></span>
+          <span class="h-3 rounded bg-brand" :style="{ width: (w.traders / maxTraders) * 100 + '%' }" aria-hidden="true"></span>
           <span class="font-bold">{{ w.traders }}</span>
         </li>
       </ul>
@@ -47,7 +47,7 @@ onMounted(async () => {
       <ul class="space-y-3">
         <li v-for="m in data.tradesPerMarket" :key="m.id">
           <p class="text-sm"><RouterLink :to="`/mercati/${m.id}`">{{ m.question }}</RouterLink> · <strong>{{ m.trades }}</strong></p>
-          <span class="mt-1 block h-3 rounded bg-oracle" :style="{ width: (m.trades / maxTrades) * 100 + '%' }" aria-hidden="true"></span>
+          <span class="mt-1 block h-3 rounded bg-brand" :style="{ width: (m.trades / maxTrades) * 100 + '%' }" aria-hidden="true"></span>
         </li>
       </ul>
     </section>

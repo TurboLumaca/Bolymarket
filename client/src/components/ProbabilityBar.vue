@@ -8,11 +8,11 @@ const yesPercent = computed(() => Math.round(props.priceYes * 100));
 
 <template>
   <div>
-    <p class="font-bold" :class="large ? 'text-4xl' : 'text-3xl'">
+    <p class="font-extrabold" :class="large ? 'text-4xl' : 'text-3xl'">
       {{ percent(priceYes) }} <span class="text-base font-semibold text-yes">Sì</span>
     </p>
     <div
-      class="mt-2 flex h-2 w-full overflow-hidden rounded-full border border-line"
+      class="mt-2 flex h-2 w-full overflow-hidden rounded-full border border-edge"
       role="meter"
       aria-label="Probabilità del Sì"
       aria-valuemin="0"

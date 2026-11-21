@@ -19,10 +19,10 @@ onMounted(loadUser);
   </a>
   <FakeCreditsBanner />
   <AppHeader />
-  <main id="main" class="mx-auto w-full max-w-5xl px-4 py-6">
+  <main id="main" class="mx-auto w-full max-w-6xl px-4 py-6">
     <RouterView />
   </main>
-  <footer class="mx-auto max-w-5xl space-y-3 px-4 py-6 text-sm text-muted">
+  <footer class="mx-auto max-w-6xl space-y-3 px-4 py-6 text-sm text-muted">
     <ThemeToggle />
     <p><RouterLink to="/privacy">Informativa sulla privacy</RouterLink></p>
   </footer>

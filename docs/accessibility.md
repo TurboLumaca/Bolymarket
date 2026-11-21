@@ -30,9 +30,26 @@ Controllo automatico con axe-core (regole wcag2a, wcag2aa, wcag21a, wcag21aa e b
 | Elemento | Originale | Applicato |
 |---|---|---|
 | Tema | chiaro di default | scuro di default, chiaro disponibile |
-| Token colore | paper, ink, line, oracle, yes, no, surface | stessi nomi, valori per tema scuro e chiaro; aggiunti `muted` e `oracleSoft`; Sì verde-menta e No rosso-rosa scelti per il contrasto |
+| Token colore | paper, ink, line, brand, yes, no, surface | stessi nomi, valori per tema scuro e chiaro; aggiunti `muted`, `brandSoft` ed `edge` (bordo dei controlli, contrasto 3:1); `oracle` rinominato `brand` |
 | Font | Fraunces + Inter | solo Inter, installata in locale con `@fontsource-variable/inter` (`font-display: swap`) |
 | Card e pulsanti | angoli ampi | raggio 12 px, bordo 1 px, pillole Sì/No |
 | Pannello di operazione | colonna sticky | bottom sheet su mobile, colonna sticky da md |
 | Grafici | linea | linea con sfumatura e sparkline nelle card |
 | Non adottato | | aggiornamento in tempo reale (vietati i websocket), effetto vetro sul bottom sheet (rischio contrasto) |
+
+## Deviazioni dalle specifiche (restyling ispirato a un sito di mercati predittivi)
+
+Le specifiche originali restano l'autorità: nessun nome, logo, testo o immagine del sito di riferimento è stato copiato.
+
+| Punto | Specifica / sito di riferimento | Applicato in Bolymarket |
+|---|---|---|
+| Colori Sì/No | il sito di riferimento usa verde/rosso | Sì azzurro, No ambra (adatti anche a chi non distingue rosso e verde); Sì e No restano distinti anche da testo, icona, bordo pieno o tratteggiato e righe oblique nella barra |
+| Sfondo | nero-ardesia | `paper` 9 12 16 in tema scuro; il tema chiaro resta disponibile |
+| Intestazione | barra fissa con logo, ricerca e schede | fissa (sticky) solo da 768 px in su: su telefono occuperebbe circa un quarto dello schermo |
+| Ricerca | campo nella barra | il testo va nell'indirizzo (`?q=`); il cambio di sola query non sposta il focus sull'`h1` (`router/index.js`), altrimenti non si potrebbe scrivere |
+| Schede categoria | scheda attiva sottolineata | link con `aria-current="true"` e sottolineatura; barra con scorrimento orizzontale |
+| Carosello | scorrimento automatico possibile | nessun avanzamento automatico (WCAG 2.2.2, riduzione del movimento); precedente/successivo e puntini sono pulsanti da 44 px |
+| Liste laterali | titoli del sito di riferimento | titoli nostri: «Più mossi di recente» e «Più scambiati», ricavati dai mercati aperti già caricati (variazione dalla serie dei prezzi, numero di operazioni); la direzione è scritta con freccia e segno («▲ +4 punti»), mai solo con il colore; sotto lg la colonna va in fondo alla pagina |
+| Grafico in evidenza | libreria di grafici | SVG scritto a mano (`TrendChart.vue`), con `aria-label` che riassume l'andamento; il grafico completo con tabella dati resta nella pagina del mercato |
+| Percentuali | numeri grandi | `font-extrabold`, cifre tabulari |
+| Token | solo token Tailwind | rispettato; nessun colore scritto a mano nei componenti |

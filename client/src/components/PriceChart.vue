@@ -52,7 +52,7 @@ const description = computed(() => {
       <path :d="areaPath" fill="url(#areaFill)" />
       <path :d="linePath" fill="none" stroke="rgb(var(--yes))" stroke-width="2.5" stroke-linejoin="round" />
     </svg>
-    <button type="button" class="btn mt-3 border border-line !bg-surface !text-ink" :aria-expanded="showTable" aria-controls="chartTable" @click="showTable = !showTable">
+    <button type="button" class="btn mt-3 border border-edge !bg-surface !text-ink" :aria-expanded="showTable" aria-controls="chartTable" @click="showTable = !showTable">
       {{ showTable ? 'Nascondi tabella dati' : 'Mostra tabella dati' }}
     </button>
     <div v-if="showTable" id="chartTable" class="mt-3 max-h-64 overflow-auto" tabindex="0" role="region" aria-label="Tabella dei dati del grafico">
