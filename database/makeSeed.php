@@ -14,15 +14,15 @@ const DAY = 1440;
 $nicknames = ['gestore', 'lince', 'aurora', 'tramonto', 'cesenate', 'volpe', 'nebbia', 'faro', 'delta', 'ginepro',
     'biblio', 'caffe', 'pioggia', 'sole', 'pino', 'torre', 'ciliegia', 'riva', 'onda', 'luna',
     'bussola', 'castoro', 'edera', 'falco', 'grillo', 'iris', 'lampo', 'maggese', 'noce', 'ontano', 'pavone'];
-$categories = ['Servizi', 'Eventi', 'Sport', 'Mensa', 'Aule e spazi', 'Trasporti'];
+$categories = ['Servizi', 'Eventi', 'Professori', 'Spotted', 'Aule e spazi', 'Trasporti'];
 
 // [question, category, rule, status, outcome, createdAgoDays, closesDaysFromNow, tradeCount, proposerUserId, extra]
 $markets = [
     ['La macchinetta del caffè del secondo piano verrà riparata entro Natale?', 'Servizi', 'Si risolve Sì se l\'avviso di guasto sul sito del campus viene rimosso o la macchinetta risulta in funzione entro il 25 dicembre.', 'open', null, 12, 34, 35, 4],
     ['La biblioteca resterà aperta fino alle 24 durante la sessione invernale?', 'Aule e spazi', 'Si risolve Sì se l\'avviso ufficiale della biblioteca sul sito di ateneo riporta l\'apertura fino alle 24 per almeno un giorno della sessione.', 'open', null, 9, 21, 25, 7],
-    ['Il torneo di calcetto del campus si giocherà entro il 15 dicembre?', 'Sport', 'Si risolve Sì se il calendario pubblicato dal CUS indica almeno una partita giocata entro il 15 dicembre.', 'closed', null, 20, -2, 25, 3],
-    ['La mensa proporrà un menù vegetariano ogni giorno della settimana scorsa?', 'Mensa', 'Si risolve Sì se il menù pubblicato sul sito della mensa mostra un piatto vegetariano in ogni giorno feriale.', 'resolved', 'yes', 40, -15, 22, 5],
-    ['Il proiettore dell\'aula 2.4 sarà riparato entro la fine del mese scorso?', 'Aule e spazi', 'Si risolve Sì se il registro delle manutenzioni pubblico segna l\'intervento concluso entro la fine del mese.', 'resolved', 'no', 38, -14, 22, 9],
+    ['Il torneo di calcetto del campus si giocherà entro il 15 dicembre?', 'Professori', 'Si risolve Sì se il calendario pubblicato dal CUS indica almeno una partita giocata entro il 15 dicembre.', 'closed', null, 20, -2, 25, 3],
+    ['La Spotted proporrà una altra Aura battle?', 'Spotted', 'Si risolve Sì se nel profilo isntagram della spotted verrà pubblicaot un post o una storia riguardante una nuova aura battle.', 'resolved', 'yes', 40, -15, 22, 5],
+    ['Il muro imbrattato in campus verrà ripulito entro dicemre?', 'Aule e spazi', 'Si risolve Sì se il registro delle manutenzioni pubblico segna l\'intervento concluso entro la fine del mese.', 'resolved', 'no', 38, -14, 22, 9],
     ['La linea 4 dell\'autobus aggiungerà una corsa serale entro ottobre?', 'Trasporti', 'Si risolve Sì se l\'orario ufficiale del gestore del trasporto pubblico, valido da ottobre, riporta una corsa dopo le 21.', 'resolved', 'no', 37, -13, 22, 11],
     ['L\'open day del campus supererà le 500 iscrizioni?', 'Eventi', 'Si risolve Sì se il contatore delle iscrizioni sulla pagina ufficiale dell\'evento supera 500 alla chiusura.', 'resolved', 'yes', 36, -12, 22, 13],
     ['Il Wi-Fi dell\'aula magna sarà ripristinato entro venerdì?', 'Servizi', 'Si risolve Sì se l\'avviso di disservizio sul sito del campus viene chiuso entro venerdì alle 18.', 'resolved', 'yes', 35, -11, 22, 15],

@@ -13,6 +13,14 @@ Server in PHP puro (PDO, nessun framework), client Vue 3 + Vite + Vue Router + T
 5. Compila il client: `cd client && npm install && npm run build`.
 6. Configura il virtual host come in `docs/xampp-vhost.conf` e apri `http://bolymarket.localhost`.
 
+### Setup su MAMP (macOS)
+
+1. In MAMP scegli PHP 8.2 o superiore (Preferences > PHP) e avvia i server. MySQL ascolta sulla porta 8889 (`DB_PORT` in `api/src/config.php`; su XAMPP è 3306).
+2. Importa `database/schema.sql` e `database/seed.sql` (ad esempio da phpMyAdmin) e crea l'utente indicato in `api/src/config.php`.
+3. Compila il client: `cd client && npm install && npm run build`.
+4. Aggiungi il contenuto di `docs/mamp-vhost.conf` a `/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf`, e in `httpd.conf` abilita `LoadModule rewrite_module` e l'`Include` di `httpd-vhosts.conf`.
+5. Riavvia Apache da MAMP e apri `http://bolymarket.localhost:8888`.
+
 ### Sviluppo senza Apache
 
 ```

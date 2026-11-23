@@ -17,6 +17,7 @@ const BLOCKED_PATTERNS = [
 ];
 
 const DB_HOST = '127.0.0.1';
+const DB_PORT = 8889; // 3306 on XAMPP, 8889 on MAMP
 const DB_NAME = 'bolymarket';
 const DB_USER = 'bolymarket';
 const DB_PASS = 'bolymarket';
