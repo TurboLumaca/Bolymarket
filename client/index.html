@@ -1,13 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bolymarket</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js"></script>
+    <script type="module" src="./js/app.js"></script>
+</head>
+<body>
+<div id="app">
+    <a href="#/" class="salta-contenuto" @click.prevent="vaiAlContenuto">Vai al contenuto</a>
+    <banner-crediti></banner-crediti>
+    <intestazione-app></intestazione-app>
+    <main id="main" tabindex="-1" class="contenitore contenuto">
+        <router-view></router-view>
+    </main>
+    <footer class="contenitore piede">
+        <cambio-tema></cambio-tema>
+        <p><router-link to="/privacy">Informativa sulla privacy</router-link></p>
+    </footer>
+    <div class="solo-lettori" role="status" aria-live="polite">{{ annuncio.messaggio }}</div>
+</div>
+</body>
 </html>
